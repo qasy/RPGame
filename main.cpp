@@ -1,10 +1,25 @@
 #include <iostream>
 
+namespace CellType
+{
+    enum CellType
+    {
+        WALL,
+        OPEN,
+    };
+}
+
+void displayWorld(short localWorld[10][10])
+{
+    std::cout << sizeof(localWorld) << '\n';
+}
+
 int main()
 {
-    int var  = 5;
-    int *ptr = &var;
+    short levelMask[10][10] = {0};
 
-    std::cout << "Hello world" << '\n';
+    std::cout << levelMask << '\n';
+    displayWorld(levelMask);
+    // std::cout < < < < '\n';
     return 0;
 }

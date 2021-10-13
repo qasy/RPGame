@@ -3,5 +3,6 @@
     "clang-format.assumeFilename": "/home/aleksey/Documents/CppProjects/RPGame/.vscode/.clang-format",
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
-    }
+    },
+    "editor.detectIndentation": false
 }
