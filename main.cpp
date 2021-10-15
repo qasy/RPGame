@@ -1,25 +1,35 @@
-#include <iostream>
+#include "functions.h"
 
-namespace CellType
-{
-    enum CellType
-    {
-        WALL,
-        OPEN,
-    };
-}
-
-void displayWorld(short localWorld[10][10])
-{
-    std::cout << sizeof(localWorld) << '\n';
-}
 
 int main()
 {
-    short levelMask[10][10] = {0};
 
-    std::cout << levelMask << '\n';
-    displayWorld(levelMask);
-    // std::cout < < < < '\n';
-    return 0;
+
+    const int x = 96;
+    const int y = 27;
+
+        char screen[y][x];
+
+    for (int i = 0; i < y; ++i)
+    {
+        if ((i > 5)&(i < 22))
+        {
+            for (int j = 0; j < x ; ++j)
+            {
+                screen[i][j] = ' ';
+            }
+        }
+        else
+        {
+            for (int j = 0; j < x ; ++j)
+            {
+                screen[i][j] = 'X';
+            }
+        }
+    }
+
+      DisplayScene( screen);
+
+
+
 }
