@@ -1,25 +1,18 @@
+#include "level.hpp"
 #include <iostream>
-
-namespace CellType
-{
-    enum CellType
-    {
-        WALL,
-        OPEN,
-    };
-}
-
-void displayWorld(short localWorld[10][10])
-{
-    std::cout << sizeof(localWorld) << '\n';
-}
 
 int main()
 {
-    short levelMask[10][10] = {0};
+    short height{10};
+    short width{10};
+    // Create base of the map for all levels
+    short field[height][width]{};
 
-    std::cout << levelMask << '\n';
-    displayWorld(levelMask);
-    // std::cout < < < < '\n';
+    createMap(&field[0][0], height, width);
+
+    renderWorld(&field[0][0], height, width);
+
+    // std::system("reset");
+
     return 0;
 }
