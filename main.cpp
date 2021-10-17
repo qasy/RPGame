@@ -1,23 +1,31 @@
 #include "level.hpp"
+#include "player.hpp"
 #include <iostream>
 
-int main() {
-  short height{10};
-  short width{10};
+int main()
+{
+    // Initialize the Mersenne algorithm to generate a random 32 bits number
 
-  // Create base of the map for all levels
-  short area[height][width]{};
+    // Set up size of map
+    short height{30};
+    short width{30};
 
-  createMap(&area[0][0], height, width);
-  // add npc
-  // add player
-  // loop
-  //----
+    // Create base of the map for all levels
+    short area[height][width]{};
 
-  renderWorld(&area[0][0], height, width);
-  //----
+    createMap(&area[0][0], height, width);
+    Player player;
+    createPlayer(&area[0][0], height, width, &player);
 
-  // std::system("reset");
+    // add npc
+    // add player
+    // loop
+    //----
 
-  return 0;
+    // renderWorld(&area[0][0], height, width);
+    //----
+
+    // std::system("reset");
+
+    return 0;
 }

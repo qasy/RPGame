@@ -1,14 +1,5 @@
-// Enumeration of the elements that make up the map
-namespace CellType
-{
-    enum CellType
-    {
-        OPEN,
-        WALL,
-        PLAYER,
-        ENEMY,
-    };
-}
+#ifndef LEVEL_HPP
+#define LEVEL_HPP
 
 // The function create one level, which is consist from a map and an npc
 void createLevel();
@@ -24,3 +15,5 @@ void createWall(short *ptrArea, const short &h, const short &w);
 
 // The function update all symbols on map and display the result
 void renderWorld(short *ptrWorld, const short &h, const short &w);
+
+#endif
