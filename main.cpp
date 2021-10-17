@@ -1,18 +1,23 @@
 #include "level.hpp"
 #include <iostream>
 
-int main()
-{
-    short height{10};
-    short width{10};
-    // Create base of the map for all levels
-    short field[height][width]{};
+int main() {
+  short height{10};
+  short width{10};
 
-    createMap(&field[0][0], height, width);
+  // Create base of the map for all levels
+  short area[height][width]{};
 
-    renderWorld(&field[0][0], height, width);
+  createMap(&area[0][0], height, width);
+  // add npc
+  // add player
+  // loop
+  //----
 
-    // std::system("reset");
+  renderWorld(&area[0][0], height, width);
+  //----
 
-    return 0;
+  // std::system("reset");
+
+  return 0;
 }
