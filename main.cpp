@@ -11,7 +11,7 @@ int main()
     short width{30};
 
     // Create base of the map for all levels
-    short area[height][width]{};
+    short area[height][width]{0};
 
     createMap(&area[0][0], height, width);
     Player player;
@@ -22,7 +22,7 @@ int main()
     // loop
     //----
 
-    // renderWorld(&area[0][0], height, width);
+    renderWorld(&area[0][0], height, width);
     //----
 
     // std::system("reset");

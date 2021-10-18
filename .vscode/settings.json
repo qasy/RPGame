@@ -4,5 +4,9 @@
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "files.associations": {
+        "iostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
