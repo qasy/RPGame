@@ -1,5 +1,5 @@
-#ifndef OBJECTINFO_H
-#define OBJECTINFO_H
+#ifndef OBJECTDATA_H
+#define OBJECTDATA_H
 
 enum ObjectType
 {
@@ -7,7 +7,7 @@ enum ObjectType
     WALL,
     PLAYER,
     ENEMY
-
+    
 };
 
 struct ObjectData
@@ -15,7 +15,6 @@ struct ObjectData
   ObjectType type;
   unsigned int xCoordinate;
   unsigned int yCoordinate;
-  char elementSymbol;
-  ObjectData& o;
+  char ementSymbol;   
 };
-#endif // OBJECTINFO_H
+#endif // OBJECTDATA_H

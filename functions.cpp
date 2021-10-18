@@ -5,192 +5,59 @@
 #include <vector>
 #include <typeinfo>
 
-// char  DataScene()
-// {
-//     const int x = 96;
-//     const int y = 27;
-
-//         char screen[y][x];
-
-//     for (int i = 0; i < y; ++i)
-//     {
-//         if ((i > 5)&(i < 22))
-//         {
-//             for (int j = 0; j < x ; ++j)
-//             {
-//                 screen[i][j] = ' ';
-//             }
-//         }
-//         else
-//         {
-//             for (int j = 0; j < x ; ++j)
-//             {
-//                 screen[i][j] = 'X';
-//             }
-//         }
-
-//     }
-//     return screen;
-
-
-// }
-
-void DisplayScene(char screen[27][96])
-{
-
-
-    //const int x = 96;
-    //const int y = 27;
-
-       for (int i = 0; i < 27; ++i)
-    {
-        for (int j = 0; j < 96 ; ++j)
-        {
-            std::cout <<  screen[i][j];
-        }
-
-        std::cout << '\n';
-    }
-}
-
-int *retenArray(int arr[])
-{
-    return arr;
-}
-
-//array<int, 5> &retArray(array<int, 5> &arr)
-//{
-//    return arr;
-//}
-
-
-
-
+#include "sceneObjects.h"
+#include "npsObjects.h"
 
 using std::vector;
 
-void display()
+//keep data scene elements without objects (walls, trees, etc)
+vector<vector<char>> sceneData()
 {
-    using namespace std;
 
-    int i =0;
-
-    char a = '@';
-
-    while (i < 2592)
-    {
-        cout << a;
-        i++;
-    }
 }
-// vectorChar2d DataScene(vectorChar2d & screen)
-// {
-//     const int x = 96;
-//     const int y = 27;
 
-//     //    char screen[y][x];
-
-//     for (int i = 0; i < y; ++i)
-//     {
-//         if ((i > 5)&(i < 22))
-//         {
-//             for (int j = 0; j < x ; ++j)
-//             {
-//                 screen[i][j] = ' ';
-//             }
-//         }
-//         else
-//         {
-//             for (int j = 0; j < x ; ++j)
-//             {
-//                 screen[i][j] = 'X';
-//             }
-//         }
-
-//     }
-//     return screen;
-// }
-void DisplayScene()
+// keep data all objects elements on scene
+vector<vector<ObjectData>> sceneBuffer(vector<vector<ObjectData>> sceneObject,
+                                       unsigned int sceneLenth, unsigned int sceneWidth)
 {
-    using namespace std;
+     using namespace std;
 
-    const int x = 96;
-    const int y = 27;
-    char screen[y][x];
+    vector<vector<ObjectData>> Buffer(sceneWidth,vector<ObjectData>(sceneLenth));
+    unsigned int objectVectorLenth = sceneObject.size();
+    unsigned int objectVectorWidth = sceneObject[0].size();
 
-    for (int i = 0; i < y; ++i)
+    for (unsigned int  i = 0; i < objectVectorWidth; ++i)
     {
-        for (int j = 0; j < x ; ++j)
+        for (unsigned int  j = 0; j < objectVectorLenth; ++j)
         {
-            cout <<  screen[i][j];
+            unsigned int xCoordinate = sceneObject[i][j].xCoordinate;
+            unsigned int yCoordinate = sceneObject[i][j].yCoordinate;
+            Buffer[yCoordinate][xCoordinate] = sceneObject[i][j];
+
+
+        }
+
+    }
+
+    return Buffer;
+}
+void toScreen(vector<vector<ObjectData>> Buffer)
+{
+     using namespace std;
+
+    unsigned int BufferLenth = Buffer.size();
+    unsigned int BufferWidth = Buffer[0].size();
+
+    for (unsigned int  i = 0; i < BufferWidth; ++i)
+    {
+        for (unsigned int  j = 0; j < BufferLenth; ++j)
+        {
+
+
+            cout <<  Buffer[i][j].elementSymbol;
         }
         cout << '\n';
     }
-}
-
-vector<vector<char>> playerObject()
-{
-    vector<vector<char>> player{
-        {' ', '0', ' '},
-        {'/', '@', '\\'},
-        {'/', ' ', '\\'}
-    };
-
-    return player;
-}
-
-vector<vector<char>> someObject()
-{
-    vector<vector<char>> object{
-        {'\\', '|', '/'},
-        {'-', '0', '-'},
-        {'/', '|', '\\'}
-    };
-
-    return object;
-}
-
-void displayVector(vector<vector<char>> vector)
-{
-    int lenth = 69;
-    int width = 27;
-    char a = vector[0][0];
-
-//      for (int i = 0; i < width; i++  )
-//      {
-//          for (int j = 0; j < lenth; j++  )
-//          {
-//              auto b = vector[i][j];
-
-//             if (typeid(a) == typeid(b))
-//             {
-//                 std::cout << vector[i][j];
-//             }
-//             else
-//                 std::cout << " ";
-//          }
-//          std::cout << std::endl;
-//      }
-    int aaa = vector.size();
-    int bbb = vector[0].size();
-    std::cout << aaa << std::endl;   
-    std::cout << bbb << std::endl;
-
-    vector.resize(lenth);
-
-    for (int i = 0 ; i< lenth; i++)
-    {
-        vector[i].resize(width);
-    }
-
-    for (int i = 0; i < lenth; i++  )
-          {
-              for (int j = 0; j < width; j++  )
-              {
-                     std::cout << vector[i][j];
-              }
-              std::cout << std::endl;
-          }
 }
 
 

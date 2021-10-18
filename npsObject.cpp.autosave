@@ -4,3 +4,8 @@
 
 using std::vector;
 
+vector<char> npsObject()
+{
+    vector<char> nps = {'@'};
+}
+

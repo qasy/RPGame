@@ -1,0 +1,12 @@
+#ifndef OBJECTTYPE_H
+#define OBJECTTYPE_H
+
+enum objectType
+{
+  EMPTY,
+    WALL,
+    PLAYER,
+    ENEMY
+    
+};
+#endif // OBJECTTYPE_H
