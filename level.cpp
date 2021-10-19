@@ -1,5 +1,6 @@
 #include "level.hpp"
 #include "params.hpp"
+#include "player.hpp"
 #include <iostream>
 
 // The function create one level, which is consist from a map and an npc
@@ -41,13 +42,18 @@ void createWall(short *ptrArea, const short &h, const short &w)
 }
 
 // The function update all symbols on map and display the result
-void renderWorld(short *ptrWorld, const short &h, const short &w)
+void renderWorld(short *ptrOrigWorld, const short &h, const short &w, const Player *player)
 {
+    short dispWorld[h][w]{0};
+    std::copy(ptrOrigWorld, ptrOrigWorld + h * w, &dispWorld[0][0]);
+
+    dispWorld[player->yCoordinate][player->xCoordinate] = CellType::PLAYER;
+
     for (int row = 0; row < h; ++row)
     {
         for (int col = 0; col < w; ++col)
         {
-            std::cout << *(ptrWorld + col + row * w) << " ";
+            std::cout << *(&dispWorld[0][0] + col + row * w) << " ";
         }
         std::cout << '\n';
     }

@@ -16,15 +16,12 @@ int main()
     createMap(&area[0][0], height, width);
     createPlayer(&area[0][0], height, width, &player);
 
-    std::cout << player.xCoordinate << '\n';
-    std::cout << player.yCoordinate << '\n';
-
     // add npc
     // add player
     // loop
     //----
 
-    renderWorld(&area[0][0], height, width);
+    renderWorld(&area[0][0], height, width, &player);
     //----
 
     // std::system("reset");

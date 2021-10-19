@@ -1,6 +1,8 @@
 #ifndef LEVEL_HPP
 #define LEVEL_HPP
 
+#include "player.hpp"
+
 // The function create one level, which is consist from a map and an npc
 void createLevel();
 
@@ -14,6 +16,6 @@ void createObstacles(short *ptrArea, const short &h, const short &w);
 void createWall(short *ptrArea, const short &h, const short &w);
 
 // The function update all symbols on map and display the result
-void renderWorld(short *ptrWorld, const short &h, const short &w);
+void renderWorld(short *ptrOrigWorld, const short &h, const short &w, const Player *player);
 
 #endif
