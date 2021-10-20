@@ -1,3 +1,5 @@
+#include "game_logic.hpp"
+
 // Waiting for the player's actions
 void getUserInput()
 {
@@ -7,4 +9,5 @@ void getUserInput()
 // Checking if user input is correct
 bool checkUserInput()
 {
+    return true;
 }
