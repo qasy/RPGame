@@ -4,7 +4,7 @@
 #include <random>
 
 // The function return player variable with random start coordinate in range size of map
-void createPlayer(short *ptrArea, const short &h, const short &w, Player *player)
+void playerInit(short *ptrArea, const short &h, const short &w, Player *player)
 {
     // Initialize the Mersenne algotihm to generate random start coordinate
     std::random_device rd;
@@ -31,4 +31,8 @@ void createPlayer(short *ptrArea, const short &h, const short &w, Player *player
     player->type        = CellType::PLAYER;
     player->xCoordinate = x;
     player->yCoordinate = y;
+}
+
+void playerAction()
+{
 }

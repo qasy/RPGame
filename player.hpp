@@ -11,6 +11,8 @@ struct Player
 };
 
 // The function return player variable with random start coordinate in range size of map
-void createPlayer(short *ptrArea, const short &h, const short &w, Player *player);
+void playerInit(short *ptrArea, const short &h, const short &w, Player *player);
+
+void playerAction();
 
 #endif
