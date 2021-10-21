@@ -3,7 +3,7 @@
 #   mkdir -p build
 #   cd build
 #   cmake -DCMAKE_BUILD_TYPE=Debug ..       ###--OR--###      cmake -DCMAKE_BUILD_TYPE=Release ..
-#   cmake --build .#
+#   cmake --build .
 #---(launch the "game")---
 #
 ##########################
