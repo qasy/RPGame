@@ -1,9 +1,12 @@
-#---FIRST YOU NEED TO CREATE build FOLDER IN THIS DIRECTORY:
+####FIRST YOU NEED TO CREATE build FOLDER IN THIS DIRECTORY:
+#
 #   mkdir -p build
 #   cd build
-#   cmake -DCMAKE_BUILD_TYPE=Debug .. ///// (cmake -DCMAKE_BUILD_TYPE=Release ..)
-#   cmake --build .
+#   cmake -DCMAKE_BUILD_TYPE=Debug ..       ###--OR--###      cmake -DCMAKE_BUILD_TYPE=Release ..
+#   cmake --build .#
+#---(launch the "game")---
 #
+##########################
 #---STRUCTURE OF PROJECT:
 # (you)-|
 #       |--->build
@@ -11,7 +14,7 @@
 #       |--->src
 #       |
 #       |--->inc
-
+##########################
 cmake_minimum_required(VERSION 3.16)
 
 project(RPGame)
