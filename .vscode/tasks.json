@@ -2,31 +2,55 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
+            "type": "shell",
+            "label": "CMake BUILD project in current configuration",
+            "command": "cmake",
             "args": [
-                "-g",
-                "-Wall",
-                "-Werror",
-                "-Wno-unused",
-                "-std=c++17",
-                "-Wold-style-cast",
-                "${workspaceFolder}/*.cpp",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "--build",
+                ".",
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceRoot}/build"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "compiler: /usr/bin/g++"
+            "detail": "cmake --build ."
+        },
+        {
+            "type": "shell",
+            "label": "--- CMake Debug --- project configure",
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "..",
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "cmake -DCMAKE_BUILD_TYPE=Debug .."
+        },
+        {
+            "type": "shell",
+            "label": "--- CMake Release --- project configure",
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "..",
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "cmake -DCMAKE_BUILD_TYPE=Release .."
         }
     ]
 }

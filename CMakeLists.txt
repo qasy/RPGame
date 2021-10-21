@@ -2,12 +2,40 @@ cmake_minimum_required(VERSION 3.16)
 
 project(RPGame)
 
-add_library(level level.hpp level.cpp)
-add_library(player player.hpp player.cpp)
-add_library(npc npc.hpp npc.cpp)
-add_executable(rpgame main.cpp)
+# Set compile flags
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")#For DEBUG
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")#For RELEASE
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wold-style-cast")
 
-#target_link_libraries(level PRIVATE player)
 
-target_link_libraries(rpgame PRIVATE level 
-                             PRIVATE player)
+
+message(${CMAKE_CXX_FLAGS})
+
+set(APP game)
+set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/src/")
+set(INCLUDE_DIR "${CMAKE_SOURCE_DIR}/inc/")
+
+message("Source directory: ${SOURCE_DIR}")
+message("Include directory: ${INCLUDE_DIR}")
+
+# Add libriries and their include directories
+add_library(game_logic STATIC "${SOURCE_DIR}game_logic.cpp")
+target_include_directories(game_logic PUBLIC "${INCLUDE_DIR}")
+
+add_library(level STATIC "${SOURCE_DIR}level.cpp")
+target_include_directories(level PRIVATE "${INCLUDE_DIR}")
+
+add_library(player STATIC "${SOURCE_DIR}player.cpp")
+target_include_directories(player PRIVATE "${INCLUDE_DIR}")
+
+add_library(npc STATIC "${SOURCE_DIR}npc.cpp")
+target_include_directories(npc PRIVATE "${INCLUDE_DIR}")
+
+add_executable("${APP}" "${SOURCE_DIR}main.cpp")
+target_link_libraries("${APP}"  game_logic 
+                                level 
+                                player
+                                npc)
+

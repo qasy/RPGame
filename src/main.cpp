@@ -13,15 +13,14 @@ short renderFramePerSecond  = 25;
 
 int main()
 {
-
     using namespace std::this_thread;     // sleep_for, sleep_until
     using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
 
     Player player;
 
     // Set up size of map
-    short height{10};
-    short width{10};
+    short height{15};
+    short width{15};
 
     // Create base of the map for all levels
     short area[height][width]{0};
