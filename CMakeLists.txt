@@ -1,4 +1,10 @@
-#FIRST YOU NEED TO CREATE build FOLDER IN THIS DIRECTORY
+#---FIRST YOU NEED TO CREATE build FOLDER IN THIS DIRECTORY:
+#   mkdir -p build
+#   cd build
+#   cmake -DCMAKE_BUILD_TYPE=Debug .. ///// (cmake -DCMAKE_BUILD_TYPE=Release ..)
+#   cmake --build .
+#
+#---STRUCTURE OF PROJECT:
 # (you)-|
 #       |--->build
 #       |
