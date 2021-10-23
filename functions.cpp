@@ -1,9 +1,6 @@
-
-#include <iostream>
 #include <array>
 #include <iostream>
 #include <vector>
-#include <typeinfo>
 
 #include "sceneObjects.h"
 #include "npsObjects.h"
@@ -11,18 +8,15 @@
 using std::vector;
 
 //keep data scene elements without objects (walls, trees, etc)
-vector<vector<char>> sceneData()
+
+
+vector<vector<ObjectData>> sceneBuffer( vector<vector<ObjectData>> sceneObject,
+                                        unsigned int &sceneLenth, unsigned int &sceneWidth)
 {
+    using namespace std;
 
-}
+    vector<vector<ObjectData>> buffer(sceneWidth,vector<ObjectData>(sceneLenth));
 
-// keep data all objects elements on scene
-vector<vector<ObjectData>> sceneBuffer(vector<vector<ObjectData>> sceneObject,
-                                       unsigned int sceneLenth, unsigned int sceneWidth)
-{
-     using namespace std;
-
-    vector<vector<ObjectData>> Buffer(sceneWidth,vector<ObjectData>(sceneLenth));
     unsigned int objectVectorLenth = sceneObject.size();
     unsigned int objectVectorWidth = sceneObject[0].size();
 
@@ -32,32 +26,47 @@ vector<vector<ObjectData>> sceneBuffer(vector<vector<ObjectData>> sceneObject,
         {
             unsigned int xCoordinate = sceneObject[i][j].xCoordinate;
             unsigned int yCoordinate = sceneObject[i][j].yCoordinate;
-            Buffer[yCoordinate][xCoordinate] = sceneObject[i][j];
-
-
+            buffer[yCoordinate][xCoordinate] = sceneObject[i][j];
         }
-
     }
 
-    return Buffer;
+    return buffer;
 }
-void toScreen(vector<vector<ObjectData>> Buffer)
+
+void toScreen( vector<vector<ObjectData>> Buffer)
 {
-     using namespace std;
+    using namespace std;
+    unsigned int objectVectorLenth = Buffer.size();
+    unsigned int objectVectorWidth = Buffer[0].size();
 
-    unsigned int BufferLenth = Buffer.size();
-    unsigned int BufferWidth = Buffer[0].size();
-
-    for (unsigned int  i = 0; i < BufferWidth; ++i)
+    for (unsigned int  i = 0; i < objectVectorWidth; i++)
     {
-        for (unsigned int  j = 0; j < BufferLenth; ++j)
+        for (unsigned int  j = 0; j < objectVectorLenth ; j++)
         {
-
-
-            cout <<  Buffer[i][j].elementSymbol;
+            cout <<  Buffer[i][j].elementSymbol << flush;
         }
         cout << '\n';
     }
+}
+
+vector<vector<ObjectData>> objectsToScene(vector<vector<ObjectData>> constScene,
+                                          vector<vector<ObjectData>> scene,
+                                          vector<vector<ObjectData>> sceneObject,
+                                          unsigned int sceneCoordinateX,
+                                          unsigned int sceneCoordinateY)
+{
+    scene = constScene;
+    unsigned int objectVectorLenth = sceneObject.size();
+    unsigned int objectVectorWidth = sceneObject[0].size();
+
+    for (unsigned int i = 0 ; i < objectVectorWidth; ++i)
+    {
+        for (unsigned int j = 0; j < objectVectorLenth; ++j)
+        {
+            scene[sceneCoordinateY + i][sceneCoordinateX + j] = sceneObject[i][j];
+        }
+    }
+    return scene;
 }
 
 

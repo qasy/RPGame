@@ -6,12 +6,45 @@ using std::vector;
 
 ///////////////////////////// STAY OBJECTS /////////////////////////////
 
-vector<ObjectData> wall() // NOT DO YET
+vector<vector<ObjectData>> wall(unsigned int sceneLenth, unsigned int sceneWidth)
 {
-    vector<ObjectData> wall;
+    vector<vector<ObjectData>> wall(sceneWidth,vector<ObjectData>(sceneLenth));
 
-    wall[0].type = ObjectType::WALL;
-    wall[0].elementSymbol = 'I';
+    for(unsigned int i = 0; i < sceneWidth; i++)
+    {
+        if(i == 0 || i == (sceneWidth - 1))
+        {
+            for( unsigned int j = 0; j < sceneLenth; j++)
+            {
+                wall[i][j].type = ObjectType::WALL;
+                wall[i][j].elementSymbol = 'I';
+            }
+        }
+        else
+        {
+            //            wall[i][0].type = ObjectType::WALL;
+            //            wall[i][0].elementSymbol = 'I';
+
+            //            wall[i][(sceneLenth - 1)].type = ObjectType::WALL;
+            //            wall[i][(sceneLenth - 1)].elementSymbol = 'I';
+
+            for( unsigned int j = 0; j < sceneLenth; j++)
+            {
+                if(j == 0|| j == sceneLenth -1)
+                {
+                    wall[i][j].type = ObjectType::WALL;
+                    wall[i][j].elementSymbol = 'I';
+                }
+                else
+                {
+                    wall[i][j].type = ObjectType::EMPTY;
+                    wall[i][j].elementSymbol = ' ';
+                }
+            }
+        }
+    }
+
+
 
     return wall;
 }
@@ -28,8 +61,8 @@ vector<vector<ObjectData>> field(unsigned int lenth,unsigned int width)
         {
             field[i][j].type = ObjectType::EMPTY;
             field[i][j].elementSymbol = '0';
-            field[i][j].xCoordinate = j;
-            field[i][j].yCoordinate = i;
+            //            field[i][j].xCoordinate = j;
+            //            field[i][j].yCoordinate = i;
         }
 
 

@@ -6,6 +6,8 @@
 
 using std::vector;
 
-vector<ObjectData> wall();
+vector<vector<ObjectData>> wall(unsigned int sceneLenth, unsigned int sceneWidth);
 vector<vector<ObjectData>> field(unsigned int lenth,unsigned int width);
+
 #endif // SCENEOBJECTS_H
+

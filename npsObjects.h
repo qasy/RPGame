@@ -6,8 +6,5 @@
 
 using std::vector;
 
-
-vector<ObjectData> npsObject(unsigned int xCoordinate, unsigned int yCoordinate);
-
-
+vector<vector<ObjectData>> npsObject();
 #endif // NPSOBJECTS_H

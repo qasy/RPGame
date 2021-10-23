@@ -16,6 +16,5 @@ struct ObjectData
   unsigned int xCoordinate;
   unsigned int yCoordinate;
   char elementSymbol;
-
 };
 #endif // OBJECTINFO_H
